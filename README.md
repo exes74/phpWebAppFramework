@@ -12,13 +12,13 @@ INSERT INTO `application`.`user` (`id`, `username`, `password`, `activated`, `is
 
 ##2/ WebServer - Configuration Sample based on NGINX / PHP-FPM 
 
-server {
+        server {
         listen 80;
         server_name WWW.SERVER.COM; // To be changed
         return 301 https://$server_name$request_uri; // Redirection to HTTPS
-}
+        }
 
-server {
+        server {
 
         listen 443 ssl http2;
         server_name WWW.SERVER.COM; // To be changed
@@ -37,28 +37,27 @@ server {
                 index   index.php;
         }
         
- \# Certificates
- ssl_certificate /etc/nginx/ssl/s2emetcqsc01r.orion.s2e-net.com.crt;
- ssl_certificate_key /etc/nginx/ssl/s2emetcqsc01r.orion.s2e-net.com.key;
+         \# Certificates
+         ssl_certificate /etc/nginx/ssl/s2emetcqsc01r.orion.s2e-net.com.crt;
+         ssl_certificate_key /etc/nginx/ssl/s2emetcqsc01r.orion.s2e-net.com.key;
  
- \# Protocol
- ssl_protocols TLSv1.2;
+         \# Protocol
+         ssl_protocols TLSv1.2;
  
- \# Diffie-Hellman
- ssl_ecdh_curve secp384r1;
+         \# Diffie-Hellman
+         ssl_ecdh_curve secp384r1;
  
- \# Ciphers
- ssl_ciphers EECDH+CHACHA20:EECDH+AESGCM:EECDH+AES;
- ssl_prefer_server_ciphers on;
+         \# Ciphers
+         ssl_ciphers EECDH+CHACHA20:EECDH+AESGCM:EECDH+AES;
+         ssl_prefer_server_ciphers on;
  
- \# TLS parameters
- ssl_session_cache shared:SSL:10m;
- ssl_session_timeout 5m;
- ssl_session_tickets off;
+         \# TLS parameters
+         ssl_session_cache shared:SSL:10m;
+         ssl_session_timeout 5m;
+         ssl_session_tickets off;
  
- \# TLS parameters
- ssl_session_cache shared:SSL:10m;
- ssl_session_timeout 5m;
- ssl_session_tickets off;
-
-}
+         \# TLS parameters
+         ssl_session_cache shared:SSL:10m;
+         ssl_session_timeout 5m;
+         ssl_session_tickets off;
+        }
